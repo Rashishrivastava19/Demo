@@ -17,7 +17,7 @@ const navItems = [
 return (
 <div className="sidebar">
 <div className="logo-section">
-<h2>HireHelper</h2>
+<h1>HireHelper</h1>
 </div>
 
 
@@ -32,9 +32,9 @@ return (
 
 
 <div className="sidebar-footer">
-<MdAccountCircle style={{ fontSize: '2em' }} />
-<p>John Doe</p>
-</div>
+    <MdAccountCircle style={{ fontSize: '2em' }} />
+    <p>John Doe</p>
+    </div>
 </div>
 );
 };

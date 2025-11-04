@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from '../Components/Sidebar';
-import { MdNotifications, MdList, MdHistory, MdDashboard as MdDash, MdPeople } from 'react-icons/md';
+import Header from '../Components/Header';
+import { MdList, MdHistory, MdDashboard as MdDash, MdPeople } from 'react-icons/md';
 
 
 const DashboardContent = ({ onLogout, onNavigate, appState }) => {
@@ -27,12 +28,7 @@ return (
 <div className="main-content">
 <header className="dashboard-header">
 <h1>Dashboard</h1>
-<div className="header-meta">
-<p>Welcome back, John!</p>
-<input type="text" placeholder="Search tasks..." className="search-bar" />
-<div className="notification-icon-container"><MdNotifications className="notification-icon" style={{ fontSize: '1.5em', cursor: 'pointer', color: '#333' }} /></div>
-<button onClick={onLogout} className="logout-button">Log Out</button>
-</div>
+<Header onLogout={onLogout} showWelcome={true} />
 </header>
 
 

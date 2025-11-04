@@ -314,7 +314,10 @@ cursor: pointer;
 .sidebar {
   width: 300px; /* Slimmer sidebar */
   min-width: 200px;
-  background-color: var(--color-black); 
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-black);
   border-right: 1px solid var(--border-color);
   padding: 20px 0;
   box-shadow: 1px 0 3px rgba(0, 0, 0, 0.05);
@@ -335,6 +338,14 @@ cursor: pointer;
 .nav-menu {
   flex-grow: 1;
   padding: 0 10px;
+}
+
+.sidebar-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  margin-top: auto;
 }
 
 .nav-item {

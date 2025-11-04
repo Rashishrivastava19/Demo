@@ -1,11 +1,12 @@
 // App.jsx — Imports (paste at very top)
 import React, { useState } from 'react';
-import './styles/App.css'; // make sure this path matches your styles folder/file
+import './Styles/App.css'; // make sure this path matches your styles folder/file
 
 // Components
 import WelcomePanel from './Components/WelcomePanel';
 import LoginForm from './Components/LoginForm';
 import OtpVerificationPage from './Components/OtpVerificationPage';
+import Header from './Components/Header';
 
 // Pages / Layout
 import Dashboard from './Pages/Dashboard';
@@ -50,6 +51,9 @@ return (
 <div className="dashboard-layout">
 <Dashboard onLogout={handleLogout} onNavigate={handleNavigation} appState={appState} overrideMain={() => (
 <div className="main-content">
+<header className="dashboard-header">
+<Header onLogout={handleLogout} showWelcome={false} />
+</header>
 {appState === 'mytasks' && <MyTasksPage />}
 {appState === 'requests' && <RequestsPage />}
 {appState === 'myrequests' && <MyRequestsPage />}
