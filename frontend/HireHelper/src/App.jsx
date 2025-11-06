@@ -14,6 +14,7 @@ import MyTasksPage from "./Pages/MyTasksPage";
 import RequestsPage from "./Pages/RequestsPage";
 import MyRequestsPage from "./Pages/MyRequestsPage";
 import AddTaskPage from "./Pages/AddTaskPage";
+import SettingsPage from "./Pages/SettingsPage";
 
 const App = () => {
   const [appState, setAppState] = useState("login");
@@ -46,6 +47,8 @@ const App = () => {
       case "requests":
       case "myrequests":
       case "addtask":
+      case "settings":  
+        
         return (
           <div className="dashboard-layout">
             <Dashboard
@@ -64,6 +67,7 @@ const App = () => {
                   {appState === "requests" && <RequestsPage />}
                   {appState === "myrequests" && <MyRequestsPage />}
                   {appState === "addtask" && <AddTaskPage />}
+                  {appState === "settings" && <SettingsPage />}
                 </div>
               )}
             />
