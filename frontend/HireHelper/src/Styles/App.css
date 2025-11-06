@@ -322,6 +322,10 @@ cursor: pointer;
   padding: 20px 0;
   box-shadow: 1px 0 3px rgba(0, 0, 0, 0.05);
   color: var(--text-on-dark); /* Ensure text is visible on black sidebar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 .sidebar .logo-section {
@@ -378,6 +382,7 @@ cursor: pointer;
   flex: 1;
   padding: 30px;
   overflow-y: auto;
+  margin-left: 300px;
 }
 
 .dashboard-header {
