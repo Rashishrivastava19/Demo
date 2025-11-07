@@ -1429,7 +1429,46 @@ body {
     align-items: stretch;
   }
 }
-/* My RequestsPage */
+.request-card {
+  background: white;
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.request-actions {
+  margin-top: 12px;
+}
+
+.accept-btn, .decline-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 8px;
+  font-weight: 500;
+}
+
+.accept-btn {
+  background-color: #030714; /* blue */
+  color: white;
+}
+
+.accept-btn:hover {
+  background-color: #030714;
+}
+
+.decline-btn {
+  background-color: #f3f4f6; /* light gray */
+  color: #111827;
+}
+
+.decline-btn:hover {
+  background-color: #e5e7eb;
+}
+
+/* ================My RequestsPage================== */
 .my-requests-page {
   padding: 30px;
   background-color: #f9fafb;
@@ -1585,6 +1624,19 @@ body {
     font-size: 0.85em;
   }
 }
+.request-image-container {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.request-image {
+  width: 300px;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
 /* ==================== Container and Layout ==================== */
 .add-task-container {
   min-height: 100vh;

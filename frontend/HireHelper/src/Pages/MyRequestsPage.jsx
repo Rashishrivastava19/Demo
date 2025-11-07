@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdNotificationsNone } from "react-icons/md";
+
 const myRequestsData = [
   {
     id: 1,
@@ -11,9 +12,9 @@ const myRequestsData = [
       "I’d be happy to help with your move! I have experience with heavy lifting and can bring some moving equipment. Available Saturday afternoon as requested.",
     time: "Sent Jul 4, 10:00 AM",
     location: "Downtown Seattle, WA",
+    image: "/public/moving.jpg", // 👈 Make sure this exists in /public/images/
   },
 ];
-
 
 const MyRequestsPage = () => (
   <div className="page-container my-requests-page">
@@ -62,6 +63,17 @@ const MyRequestsPage = () => (
               📅 {request.time} <span className="dot">•</span> 📍 {request.location}
             </p>
           </div>
+
+          {/* 👇 Image placed below footer, aligned left */}
+          {request.image && (
+            <div className="request-image-container">
+              <img
+                src={request.image}
+                alt={request.taskTitle}
+                className="request-image"
+              />
+            </div>
+          )}
         </div>
       ))}
     </div>

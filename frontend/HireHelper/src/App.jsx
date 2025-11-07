@@ -64,7 +64,7 @@ const App = () => {
 
                   {/* Conditional Page Rendering */}
                   {appState === "mytasks" && <MyTasksPage />}
-                  {appState === "requests" && <RequestsPage />}
+                  {appState === "requests" && <RequestsPage onNavigate={handleNavigation} />}
                   {appState === "myrequests" && <MyRequestsPage />}
                   {appState === "addtask" && <AddTaskPage />}
                   {appState === "settings" && <SettingsPage />}
