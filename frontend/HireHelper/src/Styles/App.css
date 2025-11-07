@@ -32,6 +32,10 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 /* Input, button, and general element focus state */
 input:focus,
 button:focus {
@@ -44,19 +48,24 @@ button:focus {
 .app-container {
   display: flex;
   min-height: 100vh;
-  background-color: var(--dashboard-bg); 
+  background-color: var(--dashboard-bg);
+  overflow-x: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* * Left Panel (Black & White Theme) */
 .left-panel {
-  flex: 1.2; 
+  flex: 1.2;
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Aligned content */
+  align-items: center;
+  text-align: center;
   gap: 30px;
   padding: 40px;
-  background-color: var(--panel-background); 
-  color: var(--text-on-dark); 
+  background-color: var(--panel-background);
+  color: var(--text-on-dark);
 }
 
 .logo-section h1 {
