@@ -2,7 +2,7 @@ import React from 'react';
 import { MdAccountCircle, MdDashboard, MdList, MdSettings, MdHelp, MdPeople, MdMail, MdAdd } from 'react-icons/md';
 
 
-const Sidebar = ({ currentView, onNavigate }) => {
+const Sidebar = ({ currentView, onNavigate, profileImage, userName }) => {
 const navItems = [
 { icon: MdDashboard, label: 'Dashboard', state: 'dashboard' },
 { icon: MdList, label: 'My Tasks', state: 'mytasks' },
@@ -32,8 +32,12 @@ return (
 
 
 <div className="sidebar-footer">
-    <MdAccountCircle style={{ fontSize: '2em' }} />
-    <p>John Doe</p>
+    {profileImage ? (
+      <img src={profileImage} alt="Profile" style={{ width: '2em', height: '2em', borderRadius: '50%', objectFit: 'cover' }} />
+    ) : (
+      <MdAccountCircle style={{ fontSize: '2em' }} />
+    )}
+    <p>{userName}</p>
     </div>
 </div>
 );

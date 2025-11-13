@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
-const SettingsPage = () => {
+const SettingsPage = ({ onProfileImageUpdate, currentProfileImage, onUserNameUpdate, currentUserName }) => {
   const [formData, setFormData] = useState({
-    username: 'rashi803819',
+    username: currentUserName || 'rashi803819',
     email: 'rashi803819@gmail.com',
-    fullName: 'rashi803819',
+    fullName: currentUserName || 'rashi803819',
     phone: '+1 (555) 123-4567',
     location: 'San Francisco, CA',
     bio: 'Experienced professional helper with expertise in tech, errands, and creative tasks.',
@@ -13,11 +13,14 @@ const SettingsPage = () => {
   });
 
   const [displayData, setDisplayData] = useState({
-    username: 'rashi803819',
+    username: currentUserName || 'rashi803819',
     email: 'rashi803819@gmail.com'
   });
 
   const [isEditing, setIsEditing] = useState(false);
+  const [profileImage, setProfileImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(currentProfileImage || null);
+  const fileInputRef = useRef(null);
 
   const skills = ['Web Development', 'Graphic Design', 'Friends', 'Pet Care', 'Moving'];
   const stats = {
@@ -47,8 +50,16 @@ const SettingsPage = () => {
       username: formData.fullName,
       email: formData.email
     });
+    // Update global profile image if changed
+    if (imagePreview && onProfileImageUpdate) {
+      onProfileImageUpdate(imagePreview);
+    }
+    // Update global user name if changed
+    if (formData.fullName && onUserNameUpdate) {
+      onUserNameUpdate(formData.fullName);
+    }
     // Add save logic here
-    console.log('Saved data:', formData);
+    console.log('Saved data:', formData, 'Profile image:', profileImage);
     alert('Profile updated successfully!');
   };
 
@@ -68,6 +79,24 @@ const SettingsPage = () => {
     }
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setProfileImage(file);
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setImagePreview(e.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleAvatarClick = () => {
+    if (isEditing && fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
   return (
     <div className="settings-container">
       <div className="settings-header">
@@ -79,11 +108,22 @@ const SettingsPage = () => {
       <div className="settings-section profile-overview">
         <div className="profile-header">
           <div className="profile-left">
-            <div className="profile-avatar">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-              </svg>
+            <div className="profile-avatar" onClick={handleAvatarClick} style={{ cursor: isEditing ? 'pointer' : 'default' }}>
+              {imagePreview ? (
+                <img src={imagePreview} alt="Profile Preview" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} />
+              ) : (
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+              )}
             </div>
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleImageChange}
+              accept="image/*"
+              style={{ display: 'none' }}
+            />
             <div className="profile-info">
               <h2>{displayData.username}</h2>
               <p className="profile-email">

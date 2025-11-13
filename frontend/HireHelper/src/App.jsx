@@ -20,6 +20,8 @@ import HelpSupport from "./Pages/HelpSupport";
 const App = () => {
   const [appState, setAppState] = useState("login");
   const [activeTab, setActiveTab] = useState("signin");
+  const [profileImage, setProfileImage] = useState(null);
+  const [userName, setUserName] = useState("John Doe");
 
   const handleNavigation = (state) => setAppState(state);
   const handleAuthenticationComplete = () => setAppState("otp");
@@ -41,6 +43,8 @@ const App = () => {
             onLogout={handleLogout}
             onNavigate={handleNavigation}
             appState={appState}
+            profileImage={profileImage}
+            userName={userName}
           />
         );
 
@@ -69,7 +73,7 @@ const App = () => {
                   {appState === "requests" && <RequestsPage onNavigate={handleNavigation} />}
                   {appState === "myrequests" && <MyRequestsPage />}
                   {appState === "addtask" && <AddTaskPage />}
-                  {appState === "settings" && <SettingsPage />}
+                  {appState === "settings" && <SettingsPage onProfileImageUpdate={setProfileImage} currentProfileImage={profileImage} onUserNameUpdate={setUserName} currentUserName={userName} />}
                   {appState === "help" && <HelpSupport />}
                 </div>
               )}

@@ -4,7 +4,7 @@ import Header from '../Components/Header';
 import { MdList, MdHistory, MdDashboard as MdDash, MdPeople } from 'react-icons/md';
 
 
-const DashboardContent = ({ onLogout, onNavigate, appState }) => {
+const DashboardContent = ({ onLogout, onNavigate, appState, userName }) => {
 const [selectedTask, setSelectedTask] = useState(null);
 
 
@@ -28,7 +28,7 @@ return (
 <div className="main-content">
 <header className="dashboard-header">
 <h1>Dashboard</h1>
-<Header onLogout={onLogout} showWelcome={true} />
+<Header onLogout={onLogout} showWelcome={true} userName={userName} />
 </header>
 
 
@@ -72,11 +72,11 @@ return (
 };
 
 
-const Dashboard = ({ onLogout, onNavigate, appState, overrideMain }) => {
+const Dashboard = ({ onLogout, onNavigate, appState, overrideMain, profileImage, userName }) => {
 return (
 <div className="dashboard-layout">
-<Sidebar currentView={appState} onNavigate={onNavigate} />
-{overrideMain ? overrideMain() : <DashboardContent onLogout={onLogout} onNavigate={onNavigate} appState={appState} />}
+<Sidebar currentView={appState} onNavigate={onNavigate} profileImage={profileImage} userName={userName} />
+{overrideMain ? overrideMain() : <DashboardContent onLogout={onLogout} onNavigate={onNavigate} appState={appState} userName={userName} />}
 </div>
 );
 };

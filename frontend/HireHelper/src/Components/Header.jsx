@@ -1,10 +1,10 @@
 import React from 'react';
 import { MdNotifications } from 'react-icons/md';
 
-const Header = ({ onLogout, showWelcome }) => {
+const Header = ({ onLogout, showWelcome, userName }) => {
   return (
     <div className="header-meta" style={{ marginLeft: 'auto' }}>
-      {showWelcome && <p>Welcome back, John!</p>}
+      {showWelcome && <p>Welcome back, {userName}!</p>}
       <input type="text" placeholder="Search tasks..." className="search-bar" />
       <div className="notification-icon-container">
         <MdNotifications className="notification-icon" style={{ fontSize: '1.5em', cursor: 'pointer', color: '#333' }} />
