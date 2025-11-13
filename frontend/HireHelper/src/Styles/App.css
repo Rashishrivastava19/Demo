@@ -356,7 +356,7 @@ cursor: pointer;
 .sidebar-footer {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0px;
   padding: 10px 15px;
   margin-top: auto;
 }
@@ -1540,6 +1540,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 0.9em;
+  
 }
 
 .request-header-info h4 {

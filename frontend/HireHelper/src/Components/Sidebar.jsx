@@ -35,7 +35,7 @@ return (
     {profileImage ? (
       <img src={profileImage} alt="Profile" style={{ width: '2em', height: '2em', borderRadius: '50%', objectFit: 'cover' }} />
     ) : (
-      <MdAccountCircle style={{ fontSize: '2em' }} />
+      <MdAccountCircle style={{ fontSize: '2.5em' }} />
     )}
     <p>{userName}</p>
     </div>
